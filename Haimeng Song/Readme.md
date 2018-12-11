@@ -5,7 +5,8 @@
 
 2018.12.11 Report
 
-LC760 HashMap O(n) + O(n)
+LC760 HashMap O(n) + O(n) \
+LC339 Backtracking O(n) + O(n)
 ---
 
 2018.12.10 Report
