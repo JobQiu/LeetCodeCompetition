@@ -8,7 +8,7 @@
 LC760 HashMap O(n) + O(n) \
 LC339 Backtracking O(n) + O(n) \
 LC346 LinkedList O(1) + O(size) \
-
+LC359 HashMap
 ---
 
 2018.12.10 Report
