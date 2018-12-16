@@ -1,8 +1,11 @@
 
 2018.12.15
-LC252 Sort, One Pass -> O(nlog(n)) + O(1)
-LC256 DP -> O(n) + O(1): similar with HMM
-LC270 Inorder taversal -> O(n) + O(1)
+
+LC252 Sort, One Pass -> O(nlog(n)) + O(1) \
+LC256 DP -> O(n) + O(1): similar with HMM \
+LC270 Inorder taversal -> O(n) + O(1) \
+LC246 Two pointer -> O(n) + O(1)
+
 
 ---
 2018.12.14
