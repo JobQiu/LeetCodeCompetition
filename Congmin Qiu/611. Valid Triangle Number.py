@@ -13,7 +13,6 @@ class Solution:
 
         return left
 
-    def triangleNumber( ):
 
     def triangleNumber2(self, nums):
         nums.sort()
