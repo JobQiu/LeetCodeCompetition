@@ -19,7 +19,11 @@ def searchInsert(nums, target ):
     while left < right:
         mid = (left + right ) // 2
         if nums[mid] > target:
-            pass
+            right = mid
         else:
-            pass
+            left = mid+1
     return left 
+
+res = searchInsert(nums, 7.5)
+
+res2 = searchInsert(nums, 8.5)
