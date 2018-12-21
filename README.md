@@ -2,8 +2,6 @@
 This is a competition between Congmin Qiu and Haimeng Song
 
 
-
-
 |            | Haimeng Song   | Sum(HS) | Comments | Congmin Qiu    | Sum(CQ) | Comments        |
 | ---------- | -------------- | ------- | -------- | -------------- | ------- | --------------- |
 | 2018.12.10 | E(0)+M(0)+H(0) | 0       |          | E(0)+M(0)+H(0) | 0       |                 |
@@ -15,7 +13,7 @@ This is a competition between Congmin Qiu and Haimeng Song
 | 2018.12.16 |                |         |          | 6              | 39      | Array2          |
 | 2018.12.17 |                |         |          | 8              | 47      | Array3 高频总结 |
 | 2018.12.18 |                |         |          | 0              | 47      | 这天啥都没干    |
-| 2018.12.19 |                |         |          | 6              | 54      | Hash 2          |
+| 2018.12.19 |                |         |          | 7              | 55      | Hash 2          |
 | 2018.12.20 |                |         |          |                |         |                 |
 | 2018.12.21 |                |         |          |                |         |                 |
 | 2018.12.22 |                |         |          |                |         |                 |
