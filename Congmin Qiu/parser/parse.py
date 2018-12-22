@@ -30,10 +30,10 @@ for tr in tl:
         continue
     td = tr.findAll('td')
     level = td[4].text
-    id_ = td[1].text
+    id_ = td[1].text.trim()
     problem = td[2].text
     if id_ not in filterIds:
-        res.append("## {} {} {}\n\n```\n\n```\n---\n".format(id_, problem, level))
+        res.append("## {} {} [{}]\n\n```\n\n```\n---\n".format(id_, problem, level))
 
 file = open('{}.md'.format(topic), 'w')  # write to file
 file.write('# {}\n'.format(topic))

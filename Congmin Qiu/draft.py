@@ -1,18 +1,25 @@
 class Solution:
-    def generateParenthesis(self, n):
+    def partition(self, s):
         """
-        :type n: int
-        :rtype: List[str]
+        :type s: str
+        :rtype: List[List[str]]
         """
-        self.helper(0,0,[],n, "")
+        fin = []
+
+        def pat(st, curr):
+            if len(st) == 0:
+                fin.append(list(curr))
+                return
+            for i in range(len(st)):
+                now = st[:i + 1]
+                if now == now[::-1]:
+                    curr.append(now)
+                    pat(st[i + 1:], curr)
+                    curr.pop()
+
+        pat(s, [])
+        return fin
 
 
-    def helper(self, l, r ,res, max, cur):
-        if len(cur) == max * 2:
-            res.append(cur)
-            return
-
-        if l < max:
-            self.helper(l+1,r, res, max, cur+'(')
-        if r < l:
-            self.helper(l, r+1, res, max, cur +')')
+s = Solution()
+s.partition("aabbbbcc")
