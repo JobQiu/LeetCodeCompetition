@@ -1,5 +1,11 @@
 Readable Notebook for leetcode
 
+
+每天一个专题，然后寻找网上别人的总结，对这个topic下有哪些类的题目有个基本的认识。
+第一遍就bug_free的放入 filter文件，check一下discussion， 如果有elegant的代码就不放入filter文件
+discussion里面每个vote超过100的都看一下，解释一遍。
+
+
 ---
 
 

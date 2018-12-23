@@ -5,7 +5,7 @@ except ImportError:
 
 import os
 
-topic = 'backtracking'
+topic = 'string'
 base = os.path.dirname(os.path.abspath(__file__))
 html = open(os.path.join(base, '{}.html'.format(topic)))
 soup = BeautifulSoup(html, 'html.parser')
@@ -30,13 +30,15 @@ for tr in tl:
         continue
     td = tr.findAll('td')
     level = td[4].text
-    id_ = td[1].text.trim()
+    id_ = td[1].text
+    id_ = "".join(id_.split())
     problem = td[2].text
+    problem = " ".join(problem.split())
     if id_ not in filterIds:
         res.append("## {} {} [{}]\n\n```\n\n```\n---\n".format(id_, problem, level))
 
 file = open('{}.md'.format(topic), 'w')  # write to file
-file.write('# {}\n'.format(topic))
+file.write('# {}\n\n'.format(topic))
 for line in res:
     file.write(line)
 
