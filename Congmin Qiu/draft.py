@@ -1,31 +1,33 @@
-class Solution:
-    def calculateMinimumHP(self, d):
-        """
-        :type dungeon: List[List[int]]
-        :rtype: int
-        """
-        num_row = len(d)
-        num_col = len(d[0])
+class Solution(object):
+    def isMatch(self, s, p):
+        a = 0
+        b = 0
+        m = 0
+        i = -1
+        while a < len(s):
+            if b < len(p) and (p[b] == "?" or p[b] == s[a]):
+                a = a + 1
+                b = b + 1
+            elif b < len(p) and p[b] == "*":
+                i = b
+                m = a
+                b = b + 1
+            elif i != -1:
+                b = i + 1
+                m = m + 1
+                a = m
+            else:
+                return False
+        while b < len(p):
+            if p[b] == "*":
+                b = b + 1
+            else:
+                break
+        if b == len(p):
+            return True
+        else:
+            return False
 
-        d.reverse()
-        for row in d:
-            row.reverse()
-        d[0][0] = 1 - min(d[0][0], 0)
 
-        for i in range(1, num_row):
-            if d[0]
-            d[0][i] = 1 - min(d[0][i], 0) + d[0][i - 1]
-
-        for i in range(1, num_col):
-            d[i][0] = 1 - min(d[i][0], 0) + d[i - 1][0]
-
-        for i in range(1, num_row):
-            for j in range(1, num_col):
-                d[i][j] = 1 - min(d[i][j], 0) + min(d[i - 1][j], d[i][j - 1])
-        return d[-1][-1]
-
-
-d = [[-2, -3, 3], [-5, -10, 1], [10, 30, -5]]
 s = Solution()
-res = s.calculateMinimumHP(d)
-print(res)
+res = s.isMatch("adceb", "*a*b")
