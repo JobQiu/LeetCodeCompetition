@@ -1,33 +1,58 @@
-class Solution(object):
-    def isMatch(self, s, p):
-        a = 0
-        b = 0
-        m = 0
-        i = -1
-        while a < len(s):
-            if b < len(p) and (p[b] == "?" or p[b] == s[a]):
-                a = a + 1
-                b = b + 1
-            elif b < len(p) and p[b] == "*":
-                i = b
-                m = a
-                b = b + 1
-            elif i != -1:
-                b = i + 1
-                m = m + 1
-                a = m
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+from collections import deque
+
+
+class Solution:
+    def insertPos(self, nums, target):
+        start = 0
+        end = len(nums)
+        while start < end:
+            mid = (start + end) // 2
+            if target > nums[mid]:
+                start = mid + 1
             else:
-                return False
-        while b < len(p):
-            if p[b] == "*":
-                b = b + 1
-            else:
-                break
-        if b == len(p):
-            return True
-        else:
-            return False
+                end = mid
+        return start
+
+    def closestKValues(self, root, target, k):
+        """
+        :type root: TreeNode
+        :type target: float
+        :type k: int
+        :rtype: List[int]
+        """
+
+        nums = []
+        dq = deque()
+        while root != None:
+            dq.append(root)
+            root = root.left
+
+        while len(dq) > 0:
+            cur = dq.pop()
+            nums.append(cur.val)
+            cur = cur.right
+            while cur != None:
+                dq.append(cur)
+                cur = cur.left
+        insertPos = self.insertPos(nums, target)
 
 
 s = Solution()
-res = s.isMatch("adceb", "*a*b")
+for i in range(0, 6):
+    res = s.insertPos([1, 2, 3, 4, 5], i)
+    print(res)
+"""
+root = TreeNode(4)
+root.left = TreeNode(2)
+root.right = TreeNode(5)
+root.left.left = TreeNode(1)
+root.left.right = TreeNode(3)
+
+res = s.closestKValues(root, 3.73, 4)
+"""
