@@ -18,7 +18,7 @@ This is a competition between Congmin Qiu and Haimeng Song
 | 2018.12.21 |                |         |          | 14             | 91      | backtracking                   |
 | 2018.12.22 |                |         |          | 18             | 109     | DP 1                           |
 | 2018.12.23 |                |         |          | 22             | 131     | Tree 1, 裘丛民你这个垃圾，哈哈 |
-| 2018.12.24 |                |         |          |                | [14]    | String 1                       |
+| 2018.12.24 |                |         |          |                | [14]    | String 1. qcm你这个渣渣        | 
 | 2018.12.25 |                |         |          |                | 13      | Stack PQ                       |
 | 2018.12.26 |                |         |          |                | 12      | DP 2                           |
 | 2018.12.27 |                |         |          |                | 11      | Math 1                         |
