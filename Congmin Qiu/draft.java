@@ -1,15 +1,34 @@
-public class Solution {
-    public String removeDuplicateLetters(String s) {
-        int[] cnt = new int[26];
-        int pos = 0; // the position for the smallest s[i]
-        for (int i = 0; i < s.length(); i++)
-            cnt[s.charAt(i) - 'a']++;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) < s.charAt(pos))
-            pos = i;
-            if (--cnt[s.charAt(i) - 'a'] == 0) break;
-        }
-        return s.length() == 0 ? "" :
-        s.charAt(pos) + removeDuplicateLetters(s.substring(pos + 1).replaceAll("" + s.charAt(pos), ""));
+class MedianFinder {
+
+    PriorityQueue<Long> large = new PriorityQueue<>();
+    PriorityQueue<Long> small = new PriorityQueue<>();
+
+
+    /** initialize your data structure here. */
+    public MedianFinder() {
+
+    }
+
+    public void addNum(int num) {
+        large.offer((long)(num));
+        small.offer(-large.poll());
+        if(large.size() < small.size()){
+            large.offer(-small.poll());
+        } // END of if
+    }
+
+    public double findMedian() {
+        if(large.size() > small.size()){
+            return  large.peek();
+        } // END of if
+        return (large.peek()-small.peek())/2.0;
+
     }
 }
+
+/**
+ * Your MedianFinder object will be instantiated and called as such:
+ * MedianFinder obj = new MedianFinder();
+ * obj.addNum(num);
+ * double param_2 = obj.findMedian();
+ */
