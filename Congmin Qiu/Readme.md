@@ -1,9 +1,36 @@
 Readable Notebook for leetcode
 
 
+Pool：
+2. Tree 2.5/4.5 页
+1. Math 4/5 页
+3. Stack 1/2 + Heap 1/1.5
+5. DP 5/6
+9. Binary search 3/3 + Design 2/2
+8. Array 4/7
+6. LinkedList 2/2 + Hash table 3/4
+8. DFS 4/4 + BFS 2/2
+11. Greedy 2/2 + Backtracking 2/2
+13. String 4/5
+
+| id  | Content                | Total Page | 预计       | 开学后            |
+| --- | ---------------------- | ---------- | ---------- | ----------------- |
+| 1   | Tree                   | 4.5        | 28号总结完 | 日刷经典，日增3道 |
+| 2   | String                 | 5          | 30号总结完 | 日刷经典，日增3道 |
+| 3   | Math                   | 5          | 1号总结完  | 日刷经典，日增3道 |
+| 4   | Array                  | 7          | 3号总结完  | 日刷经典，日增3道 |
+| 5   | DP                     | 6          | 6号总结完  | 日刷经典，日增3道 |
+| 6   | Binary Search + Design | 5          | 刷         |                   |
+| 7   | Stack + Heap           | 3.5        | 刷+总结    |                   |
+| 8   | LinkedList + Hash      | 6          | 刷         |                   |
+| 9   | DFS BFS                | 6          | 刷         |                   |
+| 10  | Greedy + Backtracking  | 4          | 刷         |                   |
+
+
 每天一个专题，然后寻找网上别人的总结，对这个topic下有哪些类的题目有个基本的认识。
 第一遍就bug_free的放入 filter文件，check一下discussion， 如果有elegant的代码就不放入filter文件
 discussion里面每个vote超过100的都看一下，解释一遍。
+
 
 
 ---
