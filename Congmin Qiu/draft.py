@@ -24,3 +24,5 @@ input = None
 res = s.nearestPalindromic("12114234125643")
 
 print("")
+
+<img src="https://ws3.sinaimg.cn/large/006tNbRwly1fyq3qdu9zzj30yf0u04qp.jpg" width="250px"/>
