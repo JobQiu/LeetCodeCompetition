@@ -17,9 +17,10 @@ for line in content:
 
 print(res)
 
-with open('somefile.txt', 'a') as f:
-    the_file.write('Hello\n')
-f.close
+with open('somefile.txt', 'w') as f:
+    for k in res:
+        f.write("{} {}\n".format(k, res[k]))
+f.close()
     
     
     #%%
