@@ -4,9 +4,10 @@ except ImportError:
     from bs4 import BeautifulSoup
 
 import os
+import json
 
-topic = 'string'
-base = os.path.dirname(os.path.abspath(__file__))
+topic = 'Array'
+base = ''  # os.path.dirname(os.path.abspath(__file__))
 html = open(os.path.join(base, '{}.html'.format(topic)))
 soup = BeautifulSoup(html, 'html.parser')
 filter = open(os.path.join(base, 'neverDoAgain.txt'))
@@ -16,13 +17,28 @@ for line in filter:
 
 filterIds = set(filterIds.split(","))
 
-print(filterIds)
+# print(filterIds)
 filter.close()
 ttt = soup.body.find('table')
 
 res = []
+skip = True
 
 tl = ttt.findAll('tr')
+for trow in tl:
+
+    if skip:
+        skip = False
+        continue
+    link = trow.findAll("a")[0]['href']
+    link = link.split("/")[-1]
+    res.append(link)
+    #print('"{}",'.format(link))
+with open("{}.json".format(topic), "w") as write_file:
+    json.dump(res, write_file)
+"""
+# %%
+
 skip = True
 for tr in tl:
     if skip:
@@ -44,3 +60,4 @@ for line in res:
 
 file.close()  # close file
 html.close()
+"""
