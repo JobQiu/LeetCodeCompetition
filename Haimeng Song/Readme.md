@@ -1,4 +1,9 @@
+2018.01.01
 
+LC758 Trie -> O(m*k) + O(n*k) where k is the average length of words, n is the no of words, m is the length of the string
+
+
+---
 2018.12.15
 
 LC252 Sort, One Pass -> O(nlog(n)) + O(1) \
