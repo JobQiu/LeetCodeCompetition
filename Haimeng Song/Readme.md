@@ -1,6 +1,6 @@
 2018.01.03
 
-LC734 One Pass + HashMap -> O(n*k) + O(m) 
+LC734 One Pass + HashMap -> O(n*k) + O(m)  \
 LC716 Two stack -> O(n) + O(n): if we use PriorityQueue and LinkedList could be better to O(1)
 
 ---
