@@ -1,3 +1,8 @@
+2018.01.03
+
+LC734 One Pass + HashMap -> O(n*k) + O(m) 
+
+---
 2018.01.01
 
 LC758 Trie -> O(m*k) + O(n*k) where k is the average length of words, n is the no of words, m is the length of the string
