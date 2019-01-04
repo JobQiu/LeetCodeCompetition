@@ -1,3 +1,15 @@
+关于刷题的思考
+
+有时候觉得盲目的努力是比较愚蠢的做法，就好象最近，可能觉得一天刷好多题就是一种热血的表现。没有太多的回顾，没有总结，不知道刷了对于以后的发展会有什么样的帮助。
+
+试着把每一道题想象成一笔投资，评估收益然后觉得是否要做。
+A criteria for a must-do.
+1. frequent google
+2. green > red
+3. 之前标记redo的
+4. 太考智力的，special的不做，对以后没有帮助的不做。
+
+
 Readable Notebook for leetcode
 
 
