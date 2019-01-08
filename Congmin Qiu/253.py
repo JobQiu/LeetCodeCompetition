@@ -11,21 +11,19 @@ class Solution:
         :rtype: int
         """
 
-        starts = []
-        ends = []
+        starts = [i.start for i in intervals]
+        ends = [i.end for i in intervals]
 
-        for interval in intervals:
-            starts. append(interval.start)
-            ends.append(interval.end)
         starts.sort()
         ends.sort()
 
-        count = 0
-        endInd = 0
+        res = 1
+        endIndex = 0
 
-        for num in starts:
-            if num < ends[endInd]:
-                count += 1
+
+        for start in starts:
+            if start < ends[endIndex]:
+                res += 1
             else:
-                endInd+=1
-        return count
+                endIndex +=1
+        return res

@@ -1,4 +1,42 @@
 import itertools
+from collections import defaultdict
+
+class Solution2:
+    def calcEquation(self, equations, values, queries):
+
+        edges = defaultdict(list)
+        def initialize():
+            for idx, (a,b) in enumerate(equations):
+                v = values[idx]
+                edges[a].append([b, v])
+                edges[b].append([a,1.0/v])
+            pass
+
+        def dfs(start, end, visited, total):
+            if start == end:
+                if start in edges:
+                    return total
+                else:
+                    return -1.0
+            visited.add(start);
+
+            for next_, cost in edges[start]:
+                res = dfs(next_, end, visited, total * cost)
+                if res != -1:
+                    return res
+            return -1.0
+
+        initialize()
+
+
+        return map(lambda (start, end) : dfs(start, end, set(), 1.0), queries)
+
+
+
+
+        pass
+
+
 
 
 class Solution:
@@ -10,20 +48,25 @@ class Solution:
         :rtype: List[float]
         """
 
-        from collections import defaultdict
-        quot = defaultdict(dict)
-
+        d = defaultdict(int)
         for (n1, n2), val in zip(equations, values):
-            quot[n1][n1] = quot[n2][n2] = 1.0
-            quot[n1][n2] = val
-            quot[n2][n1] = 1 / val
+            d[n1][n1] = d[n2][n2] = 1.0
+            d[n1][n2] = val
+            d[n2][n1] = 1.0/val
 
-        for k, i, j in itertools.permutations(quot, 3):
-            if k in quot[i] and j in quot[k]:
-                quot[i][j] = quot[i][k] * quot[k][j]
+        for i, j, k in itertools.permutations(d,3):
+            if j in d[i] and k in d[j]:
+                d[i][k] = d[i][j] * d[j][k]
+        res = []
+        for (n1, n2) in queries:
+            if n1 not in d or n2 not in d[n1]:
+                res.append(-1.0)
+            else:
+                res.append(d[n1][n2])
+        return res
 
-        return [quot[n1].get(n2, -1.0) for n1, n2 in queries]
-    
+
+
 
 s = Solution()
 input = None

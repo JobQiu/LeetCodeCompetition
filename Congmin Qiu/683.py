@@ -5,15 +5,18 @@ class Solution2:
         :type k: int
         :rtype: int
         [1, 6, 3, 2, 4, 5]
-        
-        [1, 4, 3, 5, 6, 2]
-
-
         """
 
-        days = [0] * len(flowers)
-        # this means days[i] is the blooming day of hte flower in position i + 1
-        #
+        l = len(flowers)
+        start = (0, l+1)
+        diff = k+1
+        intervals = set([start])
+
+        for i, pos in enumerate(flowers):
+            temp = None
+
+            
+
 
 
 

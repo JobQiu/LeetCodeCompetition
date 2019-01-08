@@ -1,6 +1,7 @@
 import heapq
 
 
+
 class Solution:
     def mincostToHireWorkers(self, quality, wage, K):
         workers = sorted([float(w) / q, q] for w, q in zip(wage, quality))
