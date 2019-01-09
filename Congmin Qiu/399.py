@@ -1,6 +1,41 @@
 import itertools
 from collections import defaultdict
 
+class Solution3:
+    def calcEquation(self, equations, values, queries ):
+        edges = collections.defaultdict(list)
+
+        def prepare( ):
+            for idx, (a, b) in enumerate(equations):
+                val = values[idx]
+                edges[a].append([b, val])
+                edges[b].append([a, 1.0/val])
+
+        def dfs(start, end, visited, prodSoFar ):
+            if start == end:
+                if start in edges:
+                    return  prodSoFar
+                else:
+                    return  -1.0
+
+            if start in visited: return  -1.0
+            visited.add(start);
+
+            for newstart, prod in edges[start]:
+                res = dfs(newstart, end, visited, prodSoFar * prod)
+                if res != -1:
+                    return res
+            return  -1.0
+
+        prepare()
+        res = []
+        for (a,b) in queries:
+            res.append(dfs(a,b,set(), 1.0))
+        return res
+
+
+        pass
+
 class Solution2:
     def calcEquation(self, equations, values, queries):
 
