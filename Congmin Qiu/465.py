@@ -1,38 +1,47 @@
+# -*- coding: utf-8 -*-
+
+# in py2.7
 from collections import defaultdict
-
-
-class Solution:
+class Solution(object):
     def minTransfers(self, transactions):
         """
         :type transactions: List[List[int]]
         :rtype: int
         """
-        m = defaultdict(int)
-        for giver, taker, val in transactions:
-            m[giver] = m[giver] - val
-            m[taker] = m[taker] + val
-
-        def settle(start, debt):
+        
+        debt = defaultdict(int)
+        
+        for give, take, val in transactions:
+            debt[give] += val
+            debt[take] -= val
+            
+        debt = debt.values()
+        print(debt)
+        
+        def helper(start, debt):
             while start < len(debt) and debt[start] == 0:
                 start += 1
+            
             if start == len(debt):
-                return 0
-
-            r = float("inf")
-            for i in range(start + 1, len(debt)):
-                if debt[start] * debt[i] < 0:
-                    debt[i] = debt[i] + debt[start]
-                    r = min(r, 1 + settle(start + 1, debt))
-                    debt[i] = debt[i] - debt[start]
-            return r
-
+                return  0
+            
+            res = float('inf')
+            for i in range(start+1, len(debt)):
+                if debt[i] * debt[start] < 0:
+                    debt[i] += debt[start]
+                    res = min(res, helper(start+1, debt)+1)
+                    debt[i] -= debt[start]
+            return res
+                 
             pass
-
-        return settle(0, list(m.values()))
-
-
+        
+        res = helper(0, debt)
+        print(res)
+        return res
+        
 s = Solution()
-input = None
-res = s.minTransfers([[0, 1, 10], [1, 0, 1], [1, 2, 5], [2, 0, 5]])
+res = s.minTransfers([[0,1,10], [1,0,1], [1,2,5], [2,0,5]])
+#%%
+            
 
-print("")
+                
