@@ -7,6 +7,7 @@ https://www.geeksforgeeks.org/count-number-of-substrings-with-exactly-k-distinct
 
 https://yeqiuquan.blogspot.com/2017/03/lintcode-597-subtree-with-maximum.html
 
+23280665029510
 
 
 ### test
