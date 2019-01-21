@@ -1,6 +1,7 @@
 2018.01.21
 
 LC125 One Pass -> O(n) + O(1)  
+LC412 One Pass -> O(n) + O(1) 
 
 ---
 
