@@ -1,3 +1,9 @@
+2018.01.21
+
+LC125 One Pass -> O(n) + O(1)  
+
+---
+
 2018.01.15
 
 LC565 One Pass + Array -> O(n) + O(n)  
