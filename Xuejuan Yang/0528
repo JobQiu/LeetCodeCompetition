@@ -1,0 +1,40 @@
+09 Palindrome Number: highest position and lowest position to compare 
+In order to find the highest position, we should frist find the div
+and while loop if x != 0
+
+03 Longest Substring Without Repeating Characters
+using left and right two pointers to find the length in which no duplications
+and using boolean[] used to track whether this character used before or not
+
+06 Zigzag conversion
+using StringBuilder array to write all the chars from 0 to n 
+then append all the stringBuilders together
+
+07 Reverse Integer
+x*10 + last num = new X
+123 
+0*10 + 3
+3*10 + 2
+(3*10+2)+1
+...
+!!! check overflow, so using long
+
+02 add two numbers
+lists
+sum  += l1 + carry
+sum += l2+ carry
+check carry
+
+01 Two sum
+map to store the nums and its indices
+
+19 Remove Nth Node From End of List
+fast and slow pointers
+fast go Nth first 
+and need DummyNode (head removed)
+
+13 Roman To Integer
+add all first
+if (Iv), sum-= 2
+...
+
