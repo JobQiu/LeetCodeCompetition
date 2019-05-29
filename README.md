@@ -6,6 +6,6 @@ At least 2 on weekdays, at least 4 on weekends. 会做的/很熟练/类似其他
 
 | Date       | Congmin Sum | Xuejuan Sum | Comment | Range |
 | ---------- | ----------- | ----------- | ------- | ----- |
-| 2019.05.28 |             |             |         |       |
+| 2019.05.28 |             |    9        |         |       |
 | 2019.05.29 |             |             |         | Array |
 |            |             |             |         |       |
