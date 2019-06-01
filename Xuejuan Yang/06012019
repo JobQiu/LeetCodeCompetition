@@ -1,0 +1,46 @@
+21 merge two sorted list 
+
+1, both not null, compare and choose the smaller one.
+2, append the not null list to dummy list
+
+23 merge k sorted list
+PQ to store k smallest elements
+append the dummy
+
+24 swap nodes in pairs
+D-1-2 
+keep track of the D and swap helper function.
+the end point is when D.next != null && D.next.next != null
+
+22 Generate Parenthese
+this is a backtracking problem. 
+add ( or ) based on the number of them
+
+15 3sum
+sort the array and deduplicate 
+
+16 3sum closest 
+keep a delta as the sum of the first three elements
+and update the delta 
+
+32longest valid parenthese
+using stack to store all the ( index
+and when meet with ), max = index of ) - stack.peek() or index 0f ) - leftmost
+leftmost = -1 at frist and update as the ) when stack is empty
+
+34 search for a range 
+find the start index
+find the end index
+
+35 search In insert Poisition
+three possible 
+1, insert element larger than the rightmost elem
+2, insert element smaller thatn the smallest elem
+2, insert element is in the middle part
+keep left and right two positions
+
+33 search in rotated sorted array
+one part is increasing .  mid > left then two possible 1, target in the increasing part...
+one part is decreasing
+
+
