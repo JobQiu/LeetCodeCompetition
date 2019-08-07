@@ -1,10 +1,8 @@
 # LeetCodeCompetition
-This is a competition between Congmin Qiu and Xuejuan Yang
 
-At least 2 on weekdays, at least 4 on weekends. 会做的/很熟练/类似其他题可跳过！
-做完一个topic进行题型总结，列出必刷的几道以后反复刷。
-
-
+每一个topic 会有一些必做 和 选做的 题目（ranked by freq），然后做完一个topic 大家一起过一遍？
+然后大家每天做完自己的部分，git pull一下，在这个readme.md上更新一下。
+如果还有人要一起练习可以拉进来，但是可能这个readme一行放不下？可以维护在一个google sheet里面？！
 
 | Date       | Congmin Sum | Xuejuan Sum | Haimeng Sum | Wenjun Zhao | Range |
 | ---------- | ----------- | ----------- | ----------- | ----------- | ----- |
