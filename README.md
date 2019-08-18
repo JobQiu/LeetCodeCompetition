@@ -16,13 +16,13 @@
 | 2019.08.11   | 83          | Tree High Freq 2        |             |             |             |
 | 2019.08.12   | 95          | Hash Table HF 1         |             |             |             |
 | 2019.08.13   |             | DFS High Freq           |             |             |             |
-| 2019.08.14   |             | DFS 2                   |             |             |             |
-| 2019.08.15   |             | Binary Search           |             |             |             |
-| 2019.08.16   |             | Greedy + Sort           |             |             |             |
-| 2019.08.17   |             | BFS + Design            |             |             |             |
-| 2019.08.18   |             | Backtracking + Stack    |             |             |             |
-| 2019.08.19   |             | Linked List + 2Pointers |             |             |             |
-| 2019.08.20   |             | Bit Graph Heap Other    |             |             |             |
-| 2019.08.21   |             | Array                   |             |             |             |
-| 2019.08.22   |             | DP                      |             |             |             |
+| 2019.08.14   | 103         | DFS 2                   |             |             |             |
+| 2019.08.19   |             | Binary Search           |             |             |             |
+| 2019.08.20   |             | Greedy + Sort           |             |             |             |
+| 2019.08.21   |             | BFS + Design            |             |             |             |
+| 2019.08.22   |             | Backtracking + Stack    |             |             |             |
+| 2019.08.23   |             | Linked List + 2Pointers |             |             |             |
+| 2019.08.24   |             | Bit Graph Heap Other    |             |             |             |
+| 2019.08.25   |             | Array                   |             |             |             |
+| 2019.08.26   |             | DP                      |             |             |             |
 | Second Round |             |                         |             |             |             |
