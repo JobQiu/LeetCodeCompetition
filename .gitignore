@@ -30,3 +30,5 @@ Congmin Qiu/.idea/Congmin Qiu.iml
 Congmin Qiu/.idea/vcs.xml
 .DS_Store
 .DS_Store
+*.py
+*.java
