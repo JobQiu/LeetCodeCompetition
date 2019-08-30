@@ -1,4 +1,4 @@
-# Greedy
+satisfy# Greedy
 
 ## 406. Queue Reconstruction by Height
 
@@ -402,7 +402,13 @@ Keep doing this to the end.
 ```
 
 ```python
-
+class Solution:
+    def maxProfit(self, prices: List[int], fee: int) -> int:
+        buy = - prices[0] - fee
+        sell = 0
+        for i in range(1, len(prices)):
+            buy, sell = max(buy, sell - prices[i] - fee), max(sell, buy+prices[i])
+        return sell
 ```
 
 This solution is faster
@@ -423,24 +429,196 @@ class Solution:
             elif price > min_price + fee:
                 profit += price - min_price - fee
                 min_price = price - fee  # save the fee for higher future price
-        return profit    
+        return profit   
+
+"""
+[1, 3, 2, 8, 4, 9]
+min_price is 1,
+when price = 3 > min_price, will do nothing
+when price = 2, do nothing
+when price is 8 > min_price + fee, so we will sell it, profit += 8-1-2 = 5
+min_price = 8-2 = 6
+so it means if we see some higher price, we will sell the stock at that price. if price < min_price, we can start another cycle, buy and sell again.
+"""
 ```
 
+- Status: need redo
+- Time: Aug 29, 2019 5:11 PM
+
+----
+
+## 330. Patching Array
+
+https://leetcode.com/problems/patching-array/
+
+Given an array and an integer, nums = [1,3], n = 6 for example, we need to use these nums to get possible from 1 to n. From the current array, we can only get 1,3,4. So the task is to find minimum number of patches we need to add to satisfy that requirement. For this example, we just need to add a 2. We can only use each number once, otherwise you can just use 1 to get any possible sum. `(╯' - ')╯︵ ┻━┻`.
+
+### Solution
+
+for example nums = [2,5,10], n = 20.
+
+for i from 1 to 20.
+
+```python
+class Solution:
+    def minPatches2(self, nums: List[int], n: int) -> int:
+        i, far, re = 0, 0, 0
+        nums = sorted(nums)
+        while far < n :
+            if i < len(nums) and nums[i] <= far + 1:
+                far += nums[i]
+                i += 1
+            else:
+                re += 1
+                far += far+1
+        return re
+
+    def minPatches(self, nums: List[int], n: int) -> int:
+        covered = 0
+        ans = 0
+        for num in nums:
+            while num > covered + 1:
+                ans += 1
+                covered = 2 * covered + 1
+                if covered >= n:
+                    return ans
+            covered += num
+            if covered >= n:
+                return ans
+        while covered < n:
+            ans += 1
+            covered = 2 * covered + 1
+        return ans
+```
+
+- Status: need redo!
+- Time: Aug 29, 2019 8:23 PM
+
+---
+
+## 376. Wiggle Subsequence
+
+https://leetcode.com/problems/wiggle-subsequence/
+
+Given an array, for example, [1,17,5,10,13,15,10,5,16,8], we need to find the length of the longest subsequence which is a wiggle subsequence. For the example above it can be [1,17,10,13,10,16,8], so we need to return 7.
+
+### Solution
+
+We can use a dp to store the last state is up or down. If current value is larger than previous value, we can update up[i] to be down[i-1] + 1.
 
 
+for our example,
+
+|      | 1   | 17  | 5   | 10  | 13  | 15  | 10  | 5   | 16  | 8   |
+| ---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| up   | `1`  | 1+1=2 |  2    | 3+1=4    |  4   | 4    |  4   |    4 |  5+1=6   | 6    |
+| down | 1   | `1`   | 2+1=3    |  3   |   3  | 3     | 4+1=5    |5     | 5    | 6+1=7    |
+
+So we should return 7 for this example.
+
+```python
+class Solution:
+    def wiggleMaxLength(self, nums: List[int]) -> int:
+
+        if not nums:
+            return 0
+
+        up = [1] * len(nums)
+        down = [1] * len(nums)
+
+        for i in range(1, len(nums)):
+            if nums[i] > nums[i-1]:
+                up[i] = down[i-1] + 1
+                down[i] = down[i-1]
+            elif nums[i] < nums[i-1]:
+                down[i] = up[i-1] + 1
+                up[i] = up[i-1]
+            else:
+                down[i] = down[i-1]
+                up[i] = up[i-1]
+        return max(down[-1], up[-1])
+```
+
+Based on this, we can continue to optimize it by using two variable instead of two arrays.
+
+```python
+class Solution:
+    def wiggleMaxLength(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        up, down = 1, 1
+        for i in range(1, len(nums)):
+            if nums[i] > nums[i-1]:
+                up = down + 1
+            elif nums[i] < nums[i-1]:
+                down= up + 1
+        return max(down, up)
+```
+---
+
+## 452. Minimum Number of Arrows to Burst Balloons
+
+https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/
+
+Given some intervals, [[10,16], [2,8], [1,6], [7,12]], the two numbers of each tuple means the start and end of a certain ballon, for some balloons, we can burst them using one arrow.
+
+<img src="https://ws3.sinaimg.cn/large/006y8mN6ly1g6i5i2gy9fj31400u0x6p.jpg" width="250px"/>
+
+As you can see, we just need 2 arrows for this example, so just return 2.
+
+```python
+class Solution:
+    def findMinArrowShots(self, p ):
+        res = 0
+        if not p:
+            return res
+        p.sort(key=lambda x:x[1])
+        res += 1
+        start, end = p[0]
+
+        for s, e in p[1:]:
+            if s > end:
+                res += 1
+                end = e
+        return res
+```
+- Status: don't need redo
+- Time: Aug 30, 2019 11:06 AM
+
+---
+
+## 392. Is Subsequence
+
+https://leetcode.com/problems/is-subsequence/
+
+Example 1:
+s = "abc", t = "ahbgdc". Return true.
+
+Example 2:
+s = "axc", t = "ahbgdc". Return false.
+
+### Solution
+
+```python
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        for ch in s:
+            idx = t.find(ch)
+            if idx == -1:
+                return False
+            t = t[idx+1:]
+        return True
+```
+
+- Status: may need redo
+- Time: Aug 30, 2019 11:16 AM
+
+---
 
 
+## 765. Couples Holding Hands
 
-
-
-
-
-
-
-
-
-
-
+https://leetcode.com/problems/couples-holding-hands/
 
 
 
