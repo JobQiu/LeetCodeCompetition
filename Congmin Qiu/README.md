@@ -620,6 +620,106 @@ class Solution:
 
 https://leetcode.com/problems/couples-holding-hands/
 
+Given an array, row = [0, 2, 1, 3], we know 2k and 2k+1 are a couple. We want to know the minimum number of swaps so that every couple is sitting side by side.
+
+For the example above, we just need to swap `2` and `1` => [0, 1, 2, 3]. So return 1.
+
+### Solution
+
+- Status : need redo !!!
+
+---
+
+## 402. Remove K Digits
+https://leetcode.com/problems/remove-k-digits/
+
+Given a string and an integer, for example, nums = "1432219", k = 3. We can remove k digits from this string, and our goal is to minimize the result.
+For that example, the smallest number we can get by removing 3 digits is 1219.
+
+### Solution
+
+So what we can do here is, by using a stack [].
+For our example, we start from 1 4 3 ... 9
+
+When the current num is smaller than the previous, and we still have k > 0, we can pop the previous num out from the stack and push this smaller num into the stack, and decrease k, because we actually deleted a character by pop that digit out from the stack.
+
+num = 1, stack [1], k = 3
+num = 4, stack [1, 4], k = 3
+num = 3, stack [1, 3], k = 2,
+here we pop the 4 out, because 14*** is always larger than 13***, so we must pop that out and replace it with 3. And because we used pop, we can only remove 2 characters later.
+num = 2, stack [1, 2], k = 1,
+num = 2, stack [1, 2, 2], k = 1,
+num = 1, stack [1, 2, 1], k = 0, we can't pop that 2 out, because we used up out k.
+num = 9, stack [1, 2, 1, 9], k = 0,
+so the result is 1219.
+
+We also need to consider when some number are same, like when nums = '111111111', and k = 1,
+using the idea above will not remove any digit.
+
+```python
+from collections import deque
+class Solution:
+    def removeKdigits(self, num: str, k: int) -> str:
+
+        stack = deque()
+
+        for n in num:
+            while stack and stack[-1] > n and k:
+                stack.pop();
+                k -= 1
+            stack.append(n)
+
+        while k:
+            stack.pop();
+            k -= 1
+        while stack and stack[0] == '0':
+            stack.popleft()
+
+        if not stack:
+            return "0"
+
+        return ''.join(stack)
+```
+
+## 910. Smallest Range II
+
+https://leetcode.com/problems/smallest-range-ii/
+
+Given an array and an integer,  A = [1,3,6], K = 3. We can add K or minus K for every number in A, and we want to get the smallest range form Max(A) and Min(A).
+For the example above, it can be [1+3, 3+3, 6-3] = [4,6,3], then the range is 3.
+
+### Solution
+
+```python
+def smallestRangeII(self, A, K):
+    A.sort()
+    res = A[-1] - A[0]
+    for i in range(len(A) - 1):
+        big = max(A[-1], A[i] + 2 * K)
+        small = min(A[i + 1], A[0] + 2 * K)
+        res = min(res, big - small)
+    return res
+```
+
+- Status : need redo! Check some other fast solutions.
+- Time: Aug 31, 2019 3:31 PM
+
+---
+
+## 659. Split Array into Consecutive Subsequences
+
+Given an array, [1,2,3,3,4,5], if it can be split into several subsequences, and each of them is at least 3 number and are consecutive. For the example above, it can be 123 and 345. Then return true. If it can't be split, return False.
+
+### Solution
+
+one idea is to maintain a priority queue, and use a HashMap to maintain the next value to that list.
+
+every time, we will put the value into the shortest list. 
+
+
+
+
+
 
 
 
