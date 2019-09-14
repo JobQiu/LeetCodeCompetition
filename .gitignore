@@ -4,7 +4,6 @@
 .idea/*
 # Log file
 *.log
-*.py
 # BlueJ files
 *.ctxt
 
